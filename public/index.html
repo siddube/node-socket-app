@@ -9,15 +9,7 @@
 <body>
 	<p>Node App Works!</p>
 	<script src="/socket.io/socket.io.js"></script>
-	<script>
-		var socket = io();
-		socket.on('connect', () => {
-			console.log('Connected To Server!');
-		});
-		socket.on('disconnect', () => {
-			console.log('Disconnected From Server!');
-		});
-	</script>
+	<script src="./scripts/index.js"></script>
 </body>
 
 </html>
