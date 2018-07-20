@@ -1,0 +1,19 @@
+#message-form {
+  width: 70%;
+  margin: 2rem auto;
+  display: block;
+}
+
+.mdl-textfield {
+  width:90%;
+}
+
+#message-input {
+  width: 100%;
+}
+
+#message-list {
+  width: 70%;
+  margin: 2rem auto;
+  display: block;
+}
