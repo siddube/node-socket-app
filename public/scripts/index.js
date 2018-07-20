@@ -25,7 +25,7 @@ $("#message-form").on("submit", function(e) {
     },
     function(data) {
       console.log("Got it!", data);
-      $("#message-input").val(null);
+      $("#message-input").val('');
     }
   );
 });
