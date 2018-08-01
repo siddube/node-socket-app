@@ -9,30 +9,23 @@ socket.on("disconnect", function() {
 });
 
 socket.on("newMessage", function(message) {
-  console.log("New Message", message);
-  var list = `
-  <li class="mdl-list__item">
-    <span class="mdl-list__item-primary-content">
-      <i class="material-icons mdl-list__item-icon">person</i>
-      <span id="message-from">${message.from}: </span>
-      <span id="message-text">${message.text}</span>
-    </span>
-    <div class="mdl-layout-spacer text-right">${moment(message.createdAt).format('h:mm a')}</div>
-  </li>`;
-  $('#message-list').prepend(list);
+  var template = $('#message-template').html();
+  var html = Mustache.render(template, {
+    from: message.from,
+    text: message.text,
+    createdAt: moment(message.createdAt).format('h:mm a')
+  });
+  $('#message-list').prepend(html);
 });
 
 socket.on('newLocationMessage', function(message) {
-  console.log(message);
-  var list = `
-  <li class="mdl-list__item">
-    <span class="mdl-list__item-primary-content">
-      <i class="material-icons mdl-list__item-icon">person</i>
-      <a id="loc-link" href="${message.url}" target="_blank">See My Location</a>
-    </span>
-    <div class="mdl-layout-spacer text-right">${moment(message.createdAt).format('h:mm a')}</div>
-  </li>`;
-  $('#message-list').prepend(list);
+  var template = $('#message-location-template').html();
+  var html = Mustache.render(template, {
+    from: message.from,
+    url: message.url,
+    createdAt: moment(message.createdAt).format('h:mm a')
+  });
+  $('#message-list').prepend(html);
 });
 
 $("#message-form").on("submit", function(e) {
@@ -56,6 +49,7 @@ locbtn.on('click', function (e) {
   }
   navigator.geolocation.getCurrentPosition(function (position) {
     socket.emit("createLocationMessage",{
+      from: "User",
       lat: position.coords.latitude,
       lng: position.coords.longitude
     },

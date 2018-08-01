@@ -51,10 +51,31 @@
 			</div>
 		</main>
 	</div>
+	<script id="message-template" type="text/template">
+		<li class="mdl-list__item">
+			<span class="mdl-list__item-primary-content">
+				<i class="material-icons mdl-list__item-icon">person</i>
+				<span id="message-from">{{from}}: </span>
+				<span id="message-text">{{text}}</span>
+			</span>
+			<div class="mdl-layout-spacer text-right">{{createdAt}}</div>
+		</li>
+	</script>
+	<script id="message-location-template" type="text/template">
+		<li class="mdl-list__item">
+			<span class="mdl-list__item-primary-content">
+				<i class="material-icons mdl-list__item-icon">person</i>
+				<span id="message-from">{{from}}: </span>
+				<a id="loc-link" href="{{url}}" target="_blank">See My Location</a>
+			</span>
+			<div class="mdl-layout-spacer text-right">{{createdAt}}</div>
+		</li>
+	</script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 	<script src="./scripts/libs/jquery.js"></script>
 	<script src="./scripts/libs/moment.js"></script>
+	<script src="./scripts//libs/mustache.js"></script>
 	<script src="./scripts/index.js"></script>
 </body>
 
