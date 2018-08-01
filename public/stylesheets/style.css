@@ -1,3 +1,10 @@
+a {
+  text-decoration: none;
+}
+
+#message-from {
+  margin-right: 5px;
+}
 #message-form {
   width: 87%;
   position: fixed;
@@ -19,6 +26,6 @@
   display: block;
 }
 
-a {
-  text-decoration: none;
+.text-right {
+  text-align: right;
 }

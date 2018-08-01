@@ -14,8 +14,10 @@ socket.on("newMessage", function(message) {
   <li class="mdl-list__item">
     <span class="mdl-list__item-primary-content">
       <i class="material-icons mdl-list__item-icon">person</i>
+      <span id="message-from">${message.from}: </span>
       <span id="message-text">${message.text}</span>
     </span>
+    <div class="mdl-layout-spacer text-right">${moment(message.createdAt).format('h:mm a')}</div>
   </li>`;
   $('#message-list').prepend(list);
 });
@@ -28,6 +30,7 @@ socket.on('newLocationMessage', function(message) {
       <i class="material-icons mdl-list__item-icon">person</i>
       <a id="loc-link" href="${message.url}" target="_blank">See My Location</a>
     </span>
+    <div class="mdl-layout-spacer text-right">${moment(message.createdAt).format('h:mm a')}</div>
   </li>`;
   $('#message-list').prepend(list);
 });
