@@ -1,7 +1,8 @@
 #message-form {
-  width: 70%;
-  margin: 2rem auto;
-  display: block;
+  width: 87%;
+  position: fixed;
+  bottom: 0;
+  left: 15%;
 }
 
 .mdl-textfield {
@@ -13,7 +14,11 @@
 }
 
 #message-list {
-  width: 70%;
+  width: 95%;
   margin: 2rem auto;
   display: block;
+}
+
+a {
+  text-decoration: none;
 }
