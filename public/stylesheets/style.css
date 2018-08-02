@@ -6,10 +6,10 @@ a {
   margin-right: 5px;
 }
 #message-form {
-  width: 87%;
+  width: 80%;
   position: fixed;
   bottom: 0;
-  left: 15%;
+  left: 20%;
 }
 
 .mdl-textfield {
@@ -24,6 +24,8 @@ a {
   width: 95%;
   margin: 2rem auto;
   display: block;
+  height: 70vh;
+  overflow-y: auto;
 }
 
 .text-right {
