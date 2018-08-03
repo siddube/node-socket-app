@@ -19,6 +19,16 @@ $(document).ready(function() {
   
   socket.on("connect", function() {
     console.log("Connected To Server!");
+    var params = jQuery.deparam(window.location.search);
+
+    socket.emit('join', params, function (err) {
+      if (err) {
+        alert(err);
+        window.location.href = '/';
+      } else {
+        console.log('No error');
+      }
+    });
   });
   
   socket.on("disconnect", function() {
@@ -81,7 +91,4 @@ $(document).ready(function() {
     });
   });
   
-  $('#login-btn').on('click', function () {
-    $('#login-form').submit();
-  });
 });
