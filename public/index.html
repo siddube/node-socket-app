@@ -11,72 +11,38 @@
 </head>
 
 <body>
-	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
-		mdl-layout--fixed-header">
-		<header class="mdl-layout__header">
-			<div class="mdl-layout__header-row">
-				<!-- Title -->
-				<span class="mdl-layout-title">Socket Chat</span>
-				<div class="mdl-layout-spacer"></div>
-				<!-- Navigation -->
-				<nav class="mdl-navigation">
-					<a class="mdl-navigation__link" href="" id="send-location-btn">Send Location</a>
-				</nav>
-			</div>
-		</header>
-		<div class="mdl-layout__drawer">
-			<span class="mdl-layout-title">Online Users</span>
-			<nav class="mdl-navigation">
-				<a class="mdl-navigation__link" href="">User</a>
-				<a class="mdl-navigation__link" href="">User</a>
-				<a class="mdl-navigation__link" href="">User</a>
-				<a class="mdl-navigation__link" href="">User</a>
-			</nav>
-		</div>
-		<main class="mdl-layout__content">
-			<div class="page-content">
-				<div>
-					<ul class="demo-list-icon mdl-list" id="message-list">
-					</ul>
-				</div>
-				<form action="#" id="message-form">
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="message-input" autofocus autocomplete="off">
-						<label class="mdl-textfield__label" for="message-input">Message...</label>
+	<div id="login-form-container">
+		<div class="mdl-layout mdl-js-layout mdl-color--grey-100">
+			<main class="mdl-layout__content">
+				<div class="mdl-card mdl-shadow--6dp">
+					<div class="mdl-card__title mdl-color--primary mdl-color-text--white">
+						<h2 class="mdl-card__title-text">Socket Chat</h2>
 					</div>
-					<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" type="submit">
-						<i class="material-icons">send</i>
-					</button>
-				</form>
-			</div>
-		</main>
+					<div class="mdl-card__supporting-text">
+						<form action="#">
+							<div class="mdl-textfield mdl-js-textfield">
+								<input class="mdl-textfield__input" type="text" id="username" autocomplete="off">
+								<label class="mdl-textfield__label" for="username">Username</label>
+							</div>
+							<div class="mdl-textfield mdl-js-textfield">
+								<input class="mdl-textfield__input" type="password" id="userroom">
+								<label class="mdl-textfield__label" for="userroom">Room</label>
+							</div>
+						</form>
+					</div>
+					<div class="mdl-card__actions mdl-card--border">
+						<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Log in</button>
+					</div>
+				</div>
+			</main>
+		</div>
 	</div>
-	<script id="message-template" type="text/template">
-		<li class="mdl-list__item">
-			<span class="mdl-list__item-primary-content">
-				<i class="material-icons mdl-list__item-icon">person</i>
-				<span id="message-from">{{from}}: </span>
-				<span id="message-text">{{text}}</span>
-			</span>
-			<div class="mdl-layout-spacer text-right">{{createdAt}}</div>
-		</li>
-	</script>
-	<script id="message-location-template" type="text/template">
-		<li class="mdl-list__item">
-			<span class="mdl-list__item-primary-content">
-				<i class="material-icons mdl-list__item-icon">person</i>
-				<span id="message-from">{{from}}: </span>
-				<a id="loc-link" href="{{url}}" target="_blank">See My Location</a>
-			</span>
-			<div class="mdl-layout-spacer text-right">{{createdAt}}</div>
-		</li>
-	</script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 	<script src="./scripts/libs/jquery.js"></script>
 	<script src="./scripts/libs/moment.js"></script>
 	<script src="./scripts//libs/mustache.js"></script>
-	<script src="./scripts/index.js"></script>
+	<script src="./scripts/chat.js"></script>
 </body>
 
 </html>

@@ -14,7 +14,6 @@ $(document).ready(function() {
     
     if (clientHeight + scrollTop + newMessageHeight + lastMessageHeight >= scrollHeight) {
       messages.scrollTop(scrollHeight);
-     console.log(scrollHeight);
     }
   }
   

@@ -31,3 +31,12 @@ a {
 .text-right {
   text-align: right;
 }
+
+#login-form-container .mdl-layout {
+	align-items: center;
+  justify-content: center;
+}
+#login-form-container .mdl-layout__content {
+	padding: 24px;
+	flex: none;
+}
