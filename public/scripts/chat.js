@@ -81,4 +81,7 @@ $(document).ready(function() {
     });
   });
   
+  $('#login-btn').on('click', function () {
+    $('#login-form').submit();
+  });
 });
