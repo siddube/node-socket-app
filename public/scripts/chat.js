@@ -68,7 +68,6 @@ $(document).ready(function() {
   $("#message-form").on("submit", function(e) {
     e.preventDefault();
     socket.emit("createMessage",{
-        from: "User",
         text: $("#message-input").val()
       },
       function(data) {
@@ -85,7 +84,6 @@ $(document).ready(function() {
     }
     navigator.geolocation.getCurrentPosition(function (position) {
       socket.emit("createLocationMessage",{
-        from: "User",
         lat: position.coords.latitude,
         lng: position.coords.longitude
       },
