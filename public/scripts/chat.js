@@ -4,7 +4,8 @@ $(document).ready(function() {
   function scrollToBottom () {
     // Selectors
     var messages = $('#message-list');
-    var newMessage = messages.children('li:last-child')
+    var newMessage = messages.children('li:last-child');
+
     // Heights
     var clientHeight = messages.prop('clientHeight');
     var scrollTop = messages.prop('scrollTop');
@@ -18,15 +19,11 @@ $(document).ready(function() {
   }
   
   socket.on("connect", function() {
-    console.log("Connected To Server!");
     var params = jQuery.deparam(window.location.search);
-
     socket.emit('join', params, function (err) {
       if (err) {
         alert(err);
         window.location.href = '/';
-      } else {
-        console.log('No error');
       }
     });
   });
@@ -88,7 +85,6 @@ $(document).ready(function() {
         lng: position.coords.longitude
       },
       function(data) {
-        console.log("Got it!", data);
         $("#message-input").val('');
       }
     );
