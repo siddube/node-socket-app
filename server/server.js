@@ -12,6 +12,7 @@ const port = process.env.PORT || 3000;
 var app = express();
 var server = http.createServer(app);
 var io = socketIO(server);
+var users = new Users();
 
 app.use(express.static(publicPath));
 
@@ -22,12 +23,15 @@ io.on('connection', socket => {
 			callback('Please enter valid name and room');
 		}
 		socket.join(params.room);
+		users.removeUser(socket.id);
+		users.addUser(socket.id, params.name, params.room);
+
+		io.to(params.room).emit('updateUserList', users.getUserList(params.room));
 		socket.emit('newMessage', generateMessage('Admin', `Hey ${params.name}, welcome to Socket Chat`));
 		socket.broadcast.to(params.room).emit('newMessage', generateMessage('Admin', `${params.name} joined the chat!`));
 		callback();
 	});
 	socket.on('createMessage', (message, callback) => {
-		// console.log('Message Created', message);
 		io.emit('newMessage', generateMessage(message.from, message.text));
 		callback('This is from server');
 	});
@@ -37,7 +41,11 @@ io.on('connection', socket => {
 	});
 
   socket.on('disconnect', () => {
-    console.log('User Disconnected');
+		user = users.removeUser(socket.id);
+		if (user) {
+			io.to(user.room).emit('updateUserList', users.getUserList(user.room));
+			io.to(user.room).emit('newMessage', generateMessage('Admin', `${user.name} left the chat.`))
+		}
   });
 });
 

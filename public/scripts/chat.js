@@ -34,6 +34,14 @@ $(document).ready(function() {
   socket.on("disconnect", function() {
     console.log("Disconnected From Server!");
   });
+
+  socket.on('updateUserList', function(users) {
+    var usersList = $('#users-list');
+    usersList.html('');
+    users.forEach(function(user) {
+      usersList.append(`<a class="mdl-navigation__link" href="#">${user}</a>`);
+    });
+  });
   
   socket.on("newMessage", function(message) {
     var template = $('#message-template').html();
