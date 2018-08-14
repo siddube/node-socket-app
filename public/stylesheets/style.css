@@ -44,3 +44,10 @@ a {
 #online-title {
   font-size: 16px;
 }
+
+iframe {
+  width: 50%;
+  height: 60vh;
+  display: block;
+  margin: 15px auto;
+}
