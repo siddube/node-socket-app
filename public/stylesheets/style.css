@@ -24,7 +24,7 @@ a {
   width: 95%;
   margin: 2rem auto;
   display: block;
-  height: 70vh;
+  height: 30vh;
   overflow-y: auto;
 }
 
@@ -46,8 +46,8 @@ a {
 }
 
 iframe {
-  width: 50%;
-  height: 60vh;
+  width: 40%;
+  height: 50vh;
   display: block;
   margin: 15px auto;
 }
